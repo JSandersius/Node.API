@@ -14,7 +14,7 @@ MongoClient.connect(db.url, (err, database) => {
 
     // Make sure and add the databse name and not the collection name
 
-    db = database.db("juliannodeapi")
+    //db = database.db("juliannodeapi")
     require('./app/routes')(app, db);
 
     app.listen(port, () => {
