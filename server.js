@@ -5,8 +5,6 @@ const db = require('./config/db');
 
 const app = express();
 
-
-
 const port = 8000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,9 +14,8 @@ MongoClient.connect(db.url, (err, database) => {
 
     // Make sure and add the databse name and not the collection name
 
-    db = database.db("note-api")
+    db = database.db("juliannodeapi")
     require('./app/routes')(app, db);
-
 
     app.listen(port, () => {
         console.log('We are live on ' + port);
