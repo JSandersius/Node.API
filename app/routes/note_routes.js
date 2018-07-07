@@ -1,8 +1,15 @@
 module.exports = function (app, db) {
-    app.post('/notes', (req, res) => {
-        console.log(req.body)
-        res.send('Hello')
-    });
+    const collection =
+        app.post('/notes', (req, res) => {
+            const note = { text: req.body.body, title: req.body.title };
+            db.collection('notes').insert(note, (err, result) => {
+                if (err) {
+                    res.send({ "error": "an error has occured" });
+                } else {
+                    res.send(result.ops[0]);
+                }
+            });
+        });
 };
 
-//was missing curly bracket, that iw what was stopping proper routing
+//was missing curly bracket, that I what was stopping proper routing
