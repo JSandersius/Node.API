@@ -1,5 +1,6 @@
 var ObjectID = require('mongodb').ObjectID;
 module.exports = function (app, db) {
+
     //CREATE ROUTE
     app.get('/notes/:id', (req, res) => {
         const id = req.params.id;
@@ -48,5 +49,4 @@ module.exports = function (app, db) {
             }
         });
     });
-
 };
