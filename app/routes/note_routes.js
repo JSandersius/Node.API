@@ -1,6 +1,6 @@
 var ObjectID = require('mongodb').ObjectID;
 module.exports = function (app, db) {
-
+    //CREATE ROUTE
     app.get('/notes/:id', (req, res) => {
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
@@ -12,6 +12,7 @@ module.exports = function (app, db) {
             }
         });
     });
+    //READ ROUTE   
     app.post('/notes', (req, res) => {
         const note = { text: req.body.body, title: req.body.title };
         db.collection('notes').insert(note, (err, result) => {
@@ -22,7 +23,7 @@ module.exports = function (app, db) {
             }
         });
     });
-
+    //UPDATE ROUTE
     app.delete('/notes/:id', (req, res) => {
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
@@ -34,7 +35,7 @@ module.exports = function (app, db) {
             }
         });
     });
-
+    //DELETE ROUTE
     app.put('/notes/:id', (req, res) => {
         const id = req.params.id;
         const details = { '_id': new ObjectID(id) };
@@ -47,7 +48,5 @@ module.exports = function (app, db) {
             }
         });
     });
-
-
 
 };
