@@ -1,5 +1,4 @@
 var ObjectID = require('mongodb').ObjectID;
-
 module.exports = function (app, db) {
     app.get('/notes/:id', (req, res) => {
         const id = req.params.id;
@@ -12,7 +11,6 @@ module.exports = function (app, db) {
             }
         });
     });
-
     app.post('/notes', (req, res) => {
         const note = { text: req.body.body, title: req.body.title };
         db.collection('notes').insert(note, (err, result) => {
