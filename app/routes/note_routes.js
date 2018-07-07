@@ -11,5 +11,3 @@ module.exports = function (app, db) {
             });
         });
 };
-
-//was missing curly bracket, that I what was stopping proper routing
